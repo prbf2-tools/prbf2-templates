@@ -1,0 +1,12 @@
+templates:
+  - src: serversettings.con.tpl
+    dest: mods/pr/settings/serversettings.con
+  - src: realityconfig_admin.py.tpl
+    dest: mods/pr/python/game/realityconfig_admin.py
+    reloadable: true
+  - src: realityconfig_common.py.tpl
+    dest: mods/pr/python/game/realityconfig_common.py
+  - src: realityconfig_private.py.tpl
+    dest: mods/pr/python/game/realityconfig_private.py
+  - src: realityconfig_tracker.py.tpl
+    dest: mods/pr/python/game/realityconfig_tracker.py
