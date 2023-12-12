@@ -1,12 +1,11 @@
 murmurIP: ""
 murmurPort: 64740
 
-ports:
-  game: 16567
-  stats: 27900
-  gamespy: 29900
-  console: 4711
-  prism: 4712
+portGame: 16567
+portStats: 27900
+portGamespy: 29900
+portConsole: 4711
+portPrism: 4712
 
 countryflag: "??"
 ip: "127.0.0.1"
