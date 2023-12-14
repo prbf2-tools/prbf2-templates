@@ -48,7 +48,7 @@ sqd_resignEarly = {{ pyBool .resignEarly }}
 #
 # Amount of failed attempts before kick
 # Default is 0 (disabled)
-sqd_kickLimit = 0
+sqd_kickLimit = {{ .resignEarlyAttempts }}
 #
 # Kick squadless
 # Default is False (disabled)
@@ -85,14 +85,15 @@ sqd_kickSquadedAFKTime = {{ .kickSquadedAFKTime }}
 #
 # ==============================================================================
 # SMARTBALANCE SETTINGS
+{{- with .smartBalance }}
 #
 # Enable/disable smartbalancing.
 # Default is True
-smb_enabled = True
+smb_enabled = {{ pyBool .enabled }}
 #
 # Perform smart balance when the difference of the teams is x or more.
 # Default is 2
-smb_difference = 2
+smb_difference = {{ .difference }}
 #
 # A list of (partial) playernames and/or (clan)tags that get excluded from smart balancing.
 # If tag is part of name, you need to define position (front/back) by using * as wild card.
@@ -103,34 +104,35 @@ smb_excludeList = [
 # If set to True, it will teamswap everyone on round startup.
 # Some people don't (or can't) have modmanager to do this for them.
 # Default is True
-smb_swapTeamsOnStart = True
+smb_swapTeamsOnStart = {{ pyBool .swapTeamsOnStart}}
 #
 #
 # If set to true, teams will be scrambled at the start of each round
-smb_scrambleTeamsOnStart = False
+smb_scrambleTeamsOnStart = {{ pyBool .scrambleTeamsOnStart}}
 # If set to true, when a player joins the server they will join onto a random team.
 # Joining players will still be subject to any smartbalancing.
 # By default players always load in on blufor. Default is False.
-smb_randomiseJoinTeam = False
+smb_randomiseJoinTeam = {{ pyBool .randomiseJoinTeam }}
 # If set to True, players might get teamswitched for balance when they go dead-dead
 # Might switch anyone who is not SL/CO or on switch list
 # Default is True
-smb_balanceOnDeath = True
+smb_balanceOnDeath = {{ pyBool .balanceOnDeath }}
 
 # Keep same IP players on the same team
 # Default is False
-smb_antiGhost = False
+smb_antiGhost = {{ pyBool .antiGhost }}
 
 # Disallow mid round !switches
 # Default is False (off)
-smb_disableSwitchNow = False
+smb_disableSwitchNow = {{ pyBool .disableSwitchNow }}
 
 # Force players onto the same team on reconnect
 # Default is True (on)
-smb_forceRejoinTeamswitch = True
+smb_forceRejoinTeamswitch = {{ pyBool .forceRejoinTeamswitch }}
 
 #
 #
+{{- end }}
 # ==============================================================================
 # LOGS SETTINGS
 #

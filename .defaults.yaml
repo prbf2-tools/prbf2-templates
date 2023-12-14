@@ -27,6 +27,7 @@ sponsorMessage:
 squads:
   noSquadsBefore: 90
   resignEarly: false
+  resignEarlyAttempts: 0
   kickLimit: 0
   kickSquadLess: false
   kickSquadLessTime: 30
@@ -35,6 +36,17 @@ squads:
   kickAFKPercent: 0.9
   kickSquadedAFK: false
   kickSquadedAFKTime: 1500
+
+smartBalance:
+  enabled: true
+  difference: 2
+  swapTeamsOnStart: true
+  scrambleTeamsOnStart: false
+  randomiseJoinTeam: false
+  balanceOnDeath: true 
+  antiGhost: false
+  disableSwitchNow: false 
+  forceRejoinTeamswitch: true 
 
 admins: []
   # - name: player
