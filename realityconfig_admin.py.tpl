@@ -39,7 +39,7 @@ gameNotificationsEnabled = True
 # sqd_noSquadsBefore is subtracted from the number of seconds set in 'PRROUNDSTARTDELAY' var via realityconfig_common.py in order to get the SquadCreationTime.
 # Default is 90
 
-{{- with .squads }}
+{{- with .Values.squads }}
 sqd_noSquadsBefore = {{ .noSquadsBefore }}
 #
 # Resign early
@@ -85,7 +85,7 @@ sqd_kickSquadedAFKTime = {{ .kickSquadedAFKTime }}
 #
 # ==============================================================================
 # SMARTBALANCE SETTINGS
-{{- with .smartBalance }}
+{{- with .Values.smartBalance }}
 #
 # Enable/disable smartbalancing.
 # Default is True
@@ -225,7 +225,7 @@ log_tickets_path = "admin/logs"
 #
 # ==============================================================================
 # ANNOUNCER SETTINGS
-{{- with .announcer }}
+{{- with .Values.announcer }}
 #
 # Tip: Text preceded by §C1001 will make it orange. §3 makes it big. §C1001§3 makes it orange and big.
 # Enable/disable announcer.
