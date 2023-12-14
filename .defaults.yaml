@@ -48,6 +48,22 @@ smartBalance:
   disableSwitchNow: false 
   forceRejoinTeamswitch: true 
 
+announcer:
+  enabled: true
+  joinMessageEnabled : true
+  joinMessage: "§C1001Welcome to the battlefield, [playername]!"
+  disconnectMessageEnabled: false 
+  disconnectMessage: "[playername] has left the battlefield"
+  timedMessagesEnabled: false
+  timedMessages:
+    - interval: 100
+      msg: "Message 1"
+    - interval: 200
+      msg: "Message 2"
+    - interval: 300
+      longMsg: |
+        Very long message,
+        Over multiple lines
 admins: []
   # - name: player
   #   hash: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

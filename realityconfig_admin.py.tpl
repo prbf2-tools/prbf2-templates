@@ -225,41 +225,42 @@ log_tickets_path = "admin/logs"
 #
 # ==============================================================================
 # ANNOUNCER SETTINGS
+{{- with .announcer }}
 #
 # Tip: Text preceded by §C1001 will make it orange. §3 makes it big. §C1001§3 makes it orange and big.
 # Enable/disable announcer.
 # Default is True
-ann_enabled = True
+ann_enabled = {{ pyBool .enabled }}
 #
 # Enable/disable dislpaying a message when a player joins the server (spawns for the first time).
 # Default is True
-ann_joinMessageEnabled = True
+ann_joinMessageEnabled = {{ pyBool .joinMessageEnabled}}
 #
 # Message to send to the player (this is a PM).
 # If you want the message to contain a name, make sure to insert [playername] somewhere.
-ann_joinMessage = "§C1001Welcome to the battlefield, [playername]!"
+ann_joinMessage = {{ .joinMessage | quote }}
 #
 # If True, a message is displayed when a player disconnects from the server.
 # Default is False
-ann_disconnectMessageEnabled = False
+ann_disconnectMessageEnabled = {{ pyBool .disconnectMessageEnabled }}
 #
 # This message is displayed when a player disconnects from the server.
-ann_disconnectMessage = "[playername] has left the battlefield"
+ann_disconnectMessage = {{ .disconnectMessage }}
 #
 # Enable/disable displaying timed messages.
 # Default is False
-ann_timedMessagesEnabled = False
+ann_timedMessagesEnabled = {{ pyBool .timedMessagesEnabled }}
 #
 # Timed servermessages.
 # Usage: Interval: Message
 ann_timedMessages = {
-    100: "Message 1",
-    200: "Message 2",
-    300: """Very long message,
-Over multiple lines"""
+    {{- range .timedMessages }}
+    {{ .interval }}: {{ if .msg }}{{ .msg | quote }}{{else if .longMsg }}"""{{ .longMsg }}"""{{ end }},
+    {{- end }}
 }
 #
 #
+{{- end }}
 # ==============================================================================
 # ADMIN SETTINGS
 #
