@@ -77,6 +77,10 @@ announcer:
         Very long message,
         Over multiple lines
 
+entranceControl:
+  minimumTrust: 0
+  allowVacBanned: true
+
 admin:
   enabled: true
   showPrism: true

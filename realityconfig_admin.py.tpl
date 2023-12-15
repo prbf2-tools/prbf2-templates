@@ -730,15 +730,16 @@ rcon_port = {{ .portPrism }}
 
 
 # Entrance control
+{{- with .Values.entranceControl }}
 # Possible values are 0, 1, 2
 # 0 Means everyone
 # 1 Means some trust
 # 2 Means high trust
-ec_minimumTrust = 0
+ec_minimumTrust = {{ .minimumTrust }}
 
 # Allow VAC banned users to join the server if they're not on whitelist
-ec_allowVacBanned = True
-
+ec_allowVacBanned = {{ pyBool .allowVacBanned }}
+{{- end }}
 
 # Report this as your external IP to the master server.
 # Do not touch unless you have multiple interfaces
