@@ -263,66 +263,67 @@ ann_timedMessages = {
 {{- end }}
 # ==============================================================================
 # ADMIN SETTINGS
+{{- with .Values.admin }}
 #
 # Enable/disable admincommands.
 # Default is True
-adm_enabled = True
+adm_enabled = {{ pyBool .enabled }}
 #
 # Enable/disable to show PRISM users in !admins command.
 # Default is True
-adm_show_prism = True
+adm_show_prism = {{ pyBool .showPrism }}
 #
 # If true, as soon as the last admin leaves autoadmin will be activated.
 # Default is False
-adm_autoAdmin = False
+adm_autoAdmin = {{ pyBool .autoAdmin }}
 #
 # If true, admins will get notified about players switching teams.
 # Default is False
-adm_notifyChangeTeam = False
+adm_notifyChangeTeam = {{ pyBool .notifyChangeTeam }}
 #
 # If true, send a message on each teamkill containing
 # weapon and distance between the players
 # Default is True
-adm_sendTeamKillMessage = True
+adm_sendTeamKillMessage = {{ pyBool .sendTeamKillMessage }}
 #
 # If true, will notify all admins that a player has connected with
 # the same IP as another player currently on the server.
 # Default is True
-adm_notifySameIP = True
+adm_notifySameIP = {{ pyBool .notifySameIP }}
 #
 # Time in minutes a player is temp banned (if you use the temp-ban command, normal ban is forever!).
 # Note: if the server is restarted, the ban is lifted.
 # Default is 180
-adm_banTime = 180
+adm_banTime = {{ .banTime }}
 #
 # Admin command symbol.
 # Default is !
-adm_commandSymbol = "!"
+adm_commandSymbol = {{ .commandSymbol | quote }}
 #
 # Symbol to indicate you want to target player ID instead of name.
 # Default is @
-adm_idPrefix = "@"
+adm_idPrefix = {{ .idPrefix | quote }}
 #
 # Symbol to indicate you want to target a squad instead of name.
 # Default is #
-adm_squadPrefix = "#"
+adm_squadPrefix = {{ .squadPrefix | quote }}
 #
 # Define the maximum altitude (used in the fly-command).
 # Default is 1000
-adm_maxAltitude = 1000
+adm_maxAltitude = {{ .maxAltitude }}
 #
 #
 # Time how long a mapvote will take.
 # Default is 60
-adm_mvoteDuration = 60
+adm_mvoteDuration = {{ .mvoteDuration }}
 #
 # Time between the !mvote message pops up in the upper left corner.
 # Default is 10
-adm_mvoteRecurrence = 10
+adm_mvoteRecurrence = {{ .mvoteRecurrence }}
 #
 # The maximum number of ropes a player can have active
 # Default is 10
-adm_maxRopes = 10
+adm_maxRopes = {{ .maxRopes }}
 #
 # If !givelead should work in coop
 # Default is true
@@ -332,7 +333,7 @@ adm_coopGiveLead = True
 # Make sure there are NO duplicates!
 adm_adminHashes = {
     # "ENTER_ADMIN_HASHES_HERE":    0,    # comment , Superadmin
-    {{- range .Values.admins }}
+    {{- range .adminHashes }}
     {{ .hash | quote}}: {{ .level }}, # {{ .name }}
     {{- end }}
 }
@@ -341,13 +342,16 @@ adm_adminHashes = {
 # Leave it empty if you dont want to use this functionality.
 adm_liteAdminHashes = {
     # "ENTER_LITE_ADMIN_HASHES_HERE":    2,    # comment , Liteadmin
+    {{- range .liteAdminHashes }}
+    {{ .hash | quote}}: {{ .level }}, # {{ .name }}
+    {{- end }}
 }
 #
 # Command aliases
 # Specify aliases for long commands here.
 adm_commandAliases = {
-{{- if .Values.commandAliases }}
-    {{- range $command, $aliases := .Values.commandAliases }}
+{{- if .commandAliases }}
+    {{- range $command, $aliases := .commandAliases }}
         {{- range $aliases }}
     {{ . | quote }}: {{ $command | quote }},
         {{- end }}
@@ -374,6 +378,7 @@ adm_commandAliases = {
 # Rights management.
 # The lower the powerlevel, the more power one has.
 # Two powerlevels are defined by default, but you can define as many as you want.
+{{- with .commandLevels }}
 adm_adminPowerLevels = {
     # 0: Superadmin, can do everything.
     # 1: Moderator, can't do everything.
@@ -382,219 +387,220 @@ adm_adminPowerLevels = {
     #
     # Reload the current map.
     # Default is 1
-    "reload":     {{ .Values.commandLevels.reload }},
+    "reload":     {{ .reload }},
     #
     # Run the next map.
     # Default is 2
-    "runnext":    {{ .Values.commandLevels.runnext }},
+    "runnext":    {{ .runnext }},
     #
     # Set a next map.
     # Default is 2
-    "setnext":    {{ .Values.commandLevels.setnext }},
+    "setnext":    {{ .setnext }},
     #
     # Initializes a global server mapvote between 2-3 maps.
     # People can then vote with either writing 1,2 or 3 in chat.
     # All admins will receive a message which map won after a configured time.
     # Default is 2
-    "mapvote":    {{ .Values.commandLevels.mapvote }},
+    "mapvote":    {{ .mapvote }},
     #
     # Sends a message to a specified player.
     # Similar to !warn but without the STOP DOING THAT and is private.
-    "message":    {{ .Values.commandLevels.message }},
+    "message":    {{ .message }},
     #
     # Diplays the ticket count of both teams.
-    "tickets":    {{ .Values.commandLevels.tickets }},
+    "tickets":    {{ .tickets }},
     #
     # Player control
     # Ban a player.
     # Default is 1
-    "ban":        {{ .Values.commandLevels.ban }},
+    "ban":        {{ .ban }},
     #
     # Ban a player for a specified amount of time.
     # Default is 1
-    "timeban":    {{ .Values.commandLevels.timeban }},
+    "timeban":    {{ .timeban }},
     #
     # Ban a player for a round
     # Default is 1
-    "roundban":    {{ .Values.commandLevels.roundban }},
+    "roundban":    {{ .roundban }},
     #
     # Unbans the latest banned player.
     # Default is 1
-    "unban":      {{ .Values.commandLevels.unban }},
+    "unban":      {{ .unban }},
     #
     # Send a player up in the air.
     # Default is 0
-    "fly":        {{ .Values.commandLevels.fly }},
+    "fly":        {{ .fly }},
     #
     # Retrieves the hash of certain player.
     # Default is 2
-    "hash":       {{ .Values.commandLevels.hash }},
+    "hash":       {{ .hash }},
     #
     # Kick a player.
     # Default is 2
-    "kick":       {{ .Values.commandLevels.kick }},
+    "kick":       {{ .kick }},
     #
     # Kill a player.
     # Default is 1
-    "kill":       {{ .Values.commandLevels.kill }},
+    "kill":       {{ .kill }},
     #
     # Resign a player from being squad leader or commander.
     # Default is 2
-    "resign":     {{ .Values.commandLevels.resign }},
+    "resign":     {{ .resign }},
     #
     # Resign a player from being squad leader or commander.
     # Default is 2
-    "resignall":     {{ .Values.commandLevels.resignall }},
+    "resignall":     {{ .resignall }},
     #
     # Teamswitch a player.
     # Default is 2
-    "switch":     {{ .Values.commandLevels.switch }},
+    "switch":     {{ .switch }},
     #
     # Temporary ban a player (basically extended 'kick').
     # Default is 1
-    "tempban":    {{ .Values.commandLevels.tempban }},
+    "tempban":    {{ .tempban }},
     #
     # Warn a player.
     # Default is 2
-    "warn":       {{ .Values.commandLevels.warn }},
+    "warn":       {{ .warn }},
     #
     # Text messages
     # Show help about commands.
     # Default is 2
-    "help":       {{ .Values.commandLevels.help }},
+    "help":       {{ .help }},
     #
     # Send a message to everybody.
     # Default is 2
-    "say":        {{ .Values.commandLevels.say }},
+    "say":        {{ .say }},
     #
     # Same as !s, but for one team only.
     # Default is 2
-    "sayteam":    {{ .Values.commandLevels.sayteam }},
+    "sayteam":    {{ .sayteam }},
     #
     # Server- and Pythoncommands
     # Enable/disable smart balancing (ab = autobalance, people call it that).
     # Default is 1
-    "ab":         {{ .Values.commandLevels.ab }},
+    "ab":         {{ .ab }},
     # Reload some settings.
     # Default is 2
-    "init":       {{ .Values.commandLevels.init }},
+    "init":       {{ .init }},
     #
     #
     # Swap the teams.
     # Default is 0
-    "swapteams":  {{ .Values.commandLevels.swapteams }},
+    "swapteams":  {{ .swapteams }},
     #
     #
     # Scramble the teams.
     # Default is 0
-    "scramble":  {{ .Values.commandLevels.scramble }},
+    "scramble":  {{ .scramble }},
     #
     #
     # Stops the server.
     # Default is 1
-    "stopserver": {{ .Values.commandLevels.stopserver }},
+    "stopserver": {{ .stopserver }},
     #
     # Enable/disable autoadmin.
     # Default is 1
-    "aa":         {{ .Values.commandLevels.aa }},
+    "aa":         {{ .aa }},
     #
     # Displays a list of the last n maps that were played on the server (Configurable count)
     # Default is 2
-    "history":    {{ .Values.commandLevels.history }},
+    "history":    {{ .history }},
     #
     # Open commands
     # Please note that 777 is a fixed value for "open" commands!
     # This means everybody on the server can use them.
     # Returns a list of online admins.
     # Default is 777
-    "admins":     {{ .Values.commandLevels.admins }},
+    "admins":     {{ .admins }},
     #
     # Report a player.
     # Default is 777
-    "reportplayer":    {{ .Values.commandLevels.reportplayer }},
+    "reportplayer":    {{ .reportplayer }},
     #
     # Send a message to the admins.
     # Default is 777
-    "report":     {{ .Values.commandLevels.report }},
+    "report":     {{ .report }},
     #
     # Shows the serverrules.
     # Default is 777
-    "rules":      {{ .Values.commandLevels.rules }},
+    "rules":      {{ .rules }},
     #
     # Show the next map.
     # Default is 777
-    "shownext":   {{ .Values.commandLevels.shownext }},
+    "shownext":   {{ .shownext }},
     #
     # Give squad lead to another player.
     # Default is 777
-    "givelead":   {{ .Values.commandLevels.givelead }},
+    "givelead":   {{ .givelead }},
     #
     # shows if Battlerecorder is activated and which quality its running with.
     # Default is 777
-    "br":         {{ .Values.commandLevels.br }},
+    "br":         {{ .br }},
     #
     # Displays a link to the server website.
     # Default is 777
-    "website":    {{ .Values.commandLevels.website }},
+    "website":    {{ .website }},
     #
     # Random number utility, return a random int 0/1 by default
     # or in the range [0,m] if m is a supplied positive integer
     # Default is 777
-    "flip":       {{ .Values.commandLevels.flip }},
+    "flip":       {{ .flip }},
     # Ungrief (TODO)
     #
     #
-    "ungrief":    {{ .Values.commandLevels.ungrief }},
+    "ungrief":    {{ .ungrief }},
     #
     #
     # Reset squads - may fix squad bug
-    "resetsquads": {{ .Values.commandLevels.resetsquads }},
+    "resetsquads": {{ .resetsquads }},
     #
     # Server Entrance control
     # handle whitelist and join permissions to the server
-    "ec": {{ .Values.commandLevels.ec }},
+    "ec": {{ .ec }},
     #
     # Player info
     # Print IP, Account ID ("hash"), level, and whitelist status of a player
-    "info": {{ .Values.commandLevels.info }},
+    "info": {{ .info }},
     #
     # Player idle time
     # Print 5 longest afk players
-    "showafk": {{ .Values.commandLevels.showafk }},
+    "showafk": {{ .showafk }},
     #
     #
     # Ban a player by hash
-    "banid": {{ .Values.commandLevels.banid }},
+    "banid": {{ .banid }},
     #
     #
     # Temp Ban a player by hash
-    "timebanid": {{ .Values.commandLevels.timebanid }},
+    "timebanid": {{ .timebanid }},
     #
     #
     # Unban a player by hash
-    "unbanid": {{ .Values.commandLevels.unbanid }},
+    "unbanid": {{ .unbanid }},
     #
     #
     # Unban a player by name
-    "unbanname": {{ .Values.commandLevels.unbanname }},
+    "unbanname": {{ .unbanname }},
     #
     #
     # Make a player leader of their squad
-    "assignlead": {{ .Values.commandLevels.assignlead }},
+    "assignlead": {{ .assignlead }},
     #
     #
 
 }
+{{- end }}
 #
 # This text will be sent to the player issueing !website.
-adm_website = "§C1001http://www.realitymod.com"
+adm_website = {{ .website | quote }}
 #
 # Predefined reasons, so you only have to type a keyword as a reason.
 # The script will automatically replace it with the reason you enter below.
 # Note: only use lowercase in the reason "keys", you can use all cases in the reason itself.
 adm_reasons = {
-{{- if .Values.reasons }}
-    {{- range $short, $reason := .Values.reasons }}
+{{- if .reasons }}
+    {{- range $short, $reason := .reasons }}
     {{ $short | quote }}: {{ $reason | quote }},
     {{- end }}
 {{- else }}
@@ -613,16 +619,14 @@ adm_reasons = {
 #
 # Enable displaying rules.
 # Default is False
-adm_rulesEnabled = False
+adm_rulesEnabled = {{ pyBool .rulesEnabled }}
 #
 # Array in which the rules of the server will be saved.
 # Five rules is the max, the player can't see more than five lines. Remove lines if desired.
 adm_rules = [
-    "Rule 1",
-    "Rule 2",
-    "Rule 3",
-    "Rule 4",
-    "Rule 5",
+{{- range .rules }}
+    {{ . | quote }},
+{{- end }}
 ]
 #
 # Modify this if you want to add additional maps. You do NOT need to add official maps.
@@ -638,6 +642,7 @@ adm_mapListCustom = [
 # Give reserved slots for the following groups
 # available groups: ["CON", "DEV", "RETIRED", "TESTER"]
 adm_devReservedSlots = ["CON", "DEV", "RETIRED", "TESTER"]
+{{- end }}
 
 # PRISM: See realitymod.com/prism for help.
 rcon_enabled = True
