@@ -645,31 +645,35 @@ adm_devReservedSlots = ["CON", "DEV", "RETIRED", "TESTER"]
 {{- end }}
 
 # PRISM: See realitymod.com/prism for help.
-rcon_enabled = True
+{{- with .Values.prism }}
+rcon_enabled = {{ pyBool .enabled }}
 
 # Rcon welcome message
-rcon_welcome = 'Welcome to PRISM!'
+rcon_welcome = '{{ .welcome }}'
 
 # Powerlevels for the commands
+{{- with commandPowerLevels }}
 rcon_commandPowerLevels = {
     # PRISM user management
-    'getusers':        0,
-    'adduser':         0,
-    'changeuser':      0,
-    'deleteuser':      0,
+    'getusers':        {{ .getusers }},
+    'adduser':         {{ .adduser }},
+    'changeuser':      {{ .changeuser }},
+    'deleteuser':      {{ .deleteuser }},
     # Game management
-    'mapplayers':      0,
-    'mapgameplay':     0,
-    'readbanlist':     0,
-    'setbanlist':      0,
-    'readmaplist':     777,
-    'setmaplist':      0,
-    'apiadmin':        0,
+    'mapplayers':      {{ .mapplayers }},
+    'mapgameplay':     {{ .mapgameplay }},
+    'readbanlist':     {{ .readbanlist }},
+    'setbanlist':      {{ .setbanlist }},
+    'readmaplist':     {{ .readmaplist }},
+    'setmaplist':      {{ .setmaplist }},
+    'apiadmin':        {{ .apiadmin }},
     # Do not change these
     'listplayers':     777,
     'serverdetails':   777,
     'gameplaydetails': 777,
 }
+{{- end }}
+{{- end }}
 
 # ACSYS Asset Claim SYStem (commented out for now, future patch)
 acsys_enable = False  # Enforce squads in acsys_assets name uniqueness
@@ -722,7 +726,7 @@ acsys_low_pop = {  # additional types and template names to exclude from low pop
 }
 
 # Prism TCP port to listen on
-rcon_port = 4712
+rcon_port = {{ .portPrism }}
 
 
 # Entrance control
