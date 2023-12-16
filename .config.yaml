@@ -13,3 +13,5 @@ templates:
   - src: reservedslots.con.tpl
     dest: mods/pr/settings/reservedslots.con
     reloadable: true
+  - src: rconUsers.dat.tpl
+    dest: admin/rconUsers.dat

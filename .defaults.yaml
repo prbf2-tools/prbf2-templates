@@ -212,7 +212,10 @@ prism:
     apiadmin:        0,
 
   users: []
-    # - name: username
-    #   password: test-password
+    # provide either salt and hash or password
+    # - name: ""
+    #   salt: "" # randAlphaNum 8
+    #   hash: "" # printf "%s\x01%s" .password $salt | sha1sum
+    #   password: ""
     #   level: 0
 
