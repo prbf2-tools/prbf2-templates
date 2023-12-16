@@ -19,3 +19,9 @@ realitydebug.PRDEBUG_DEVS["{{ .name }}"] = {{ .hash | quote }}
     {{- end }}
   {{- end }}
 {{- end }}
+{{- $name, $command := range .Values.extraCommands }}
+  {{- if $command.enabled }}
+import command_{{ $name }}
+command_{{ $name }}.init()
+  {{- end }}
+{{- end }}

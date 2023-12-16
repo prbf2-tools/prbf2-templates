@@ -17,3 +17,5 @@ templates:
     dest: admin/rconUsers.dat
   - src: __init__.py.tpl
     dest: mods/pr/python/game/__init__.py
+  - src: extra.command_debug.py.tpl
+    dest: mods/pr/python/game/command_debug.py

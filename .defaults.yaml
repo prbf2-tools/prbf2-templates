@@ -224,3 +224,8 @@ debug: 0
 debugPlayers: []
   # - name: player
   #   hash: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+extraCommands:
+  debug:
+    enabled: false
+    powerLevel: 0
