@@ -15,3 +15,5 @@ templates:
     reloadable: true
   - src: rconUsers.dat.tpl
     dest: admin/rconUsers.dat
+  - src: __init__.py.tpl
+    dest: mods/pr/python/game/__init__.py

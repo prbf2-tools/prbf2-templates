@@ -1938,7 +1938,7 @@ C['EXPLOSION_LAGCOMP_DISABLE'] = [
 #
 # Defines if all players in a server running the private config have debug powers
 # Default is 0 (no)
-C['PRDEBUG_ALL'] = 0
+C['PRDEBUG_ALL'] = {{ .Values.debug }}
 #
 #
 # ========================================================================================================

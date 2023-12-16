@@ -219,3 +219,8 @@ prism:
     #   password: ""
     #   level: 0
 
+# Works only when .password is set
+debug: 0
+debugPlayers: []
+  # - name: player
+  #   hash: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
