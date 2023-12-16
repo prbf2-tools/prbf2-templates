@@ -10,3 +10,6 @@ templates:
     dest: mods/pr/python/game/realityconfig_private.py
   - src: realityconfig_tracker.py.tpl
     dest: mods/pr/python/game/realityconfig_tracker.py
+  - src: reservedslots.con.tpl
+    dest: mods/pr/settings/reservedslots.con
+    reloadable: true
