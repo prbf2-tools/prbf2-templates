@@ -731,7 +731,7 @@ acsys_low_pop = {  # additional types and template names to exclude from low pop
 }
 
 # Prism TCP port to listen on
-rcon_port = {{ .portPrism }}
+rcon_port = {{ .Values.portPrism }}
 
 
 # Entrance control
