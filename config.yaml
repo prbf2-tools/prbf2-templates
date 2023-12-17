@@ -19,3 +19,6 @@ templates:
     dest: mods/pr/python/game/__init__.py
   - src: templates/extra/command_debug.py.tpl
     dest: mods/pr/python/game/command_debug.py
+
+defaults:
+  - defaults.yaml
