@@ -1,21 +1,21 @@
 templates:
-  - src: serversettings.con.tpl
+  - src: templates/serversettings.con.tpl
     dest: mods/pr/settings/serversettings.con
-  - src: realityconfig_admin.py.tpl
+  - src: templates/realityconfig_admin.py.tpl
     dest: mods/pr/python/game/realityconfig_admin.py
     reloadable: true
-  - src: realityconfig_common.py.tpl
+  - src: templates/realityconfig_common.py.tpl
     dest: mods/pr/python/game/realityconfig_common.py
-  - src: realityconfig_private.py.tpl
+  - src: templates/realityconfig_private.py.tpl
     dest: mods/pr/python/game/realityconfig_private.py
-  - src: realityconfig_tracker.py.tpl
+  - src: templates/realityconfig_tracker.py.tpl
     dest: mods/pr/python/game/realityconfig_tracker.py
-  - src: reservedslots.con.tpl
+  - src: templates/reservedslots.con.tpl
     dest: mods/pr/settings/reservedslots.con
     reloadable: true
-  - src: rconUsers.dat.tpl
+  - src: templates/rconUsers.dat.tpl
     dest: admin/rconUsers.dat
-  - src: __init__.py.tpl
+  - src: templates/__init__.py.tpl
     dest: mods/pr/python/game/__init__.py
-  - src: extra.command_debug.py.tpl
+  - src: templates/extra/command_debug.py.tpl
     dest: mods/pr/python/game/command_debug.py
