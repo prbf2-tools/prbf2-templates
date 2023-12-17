@@ -88,3 +88,4 @@ C['TRACKER_NETWORKING'] = False
 # Edit this setting to set the port that the server will listen to.
 # If you change this setting to anything other than None it will be used instead.
 C['SERVER_PORT'] = 6669
+{{- end }}
