@@ -229,3 +229,8 @@ extraCommands:
   debug:
     enabled: false
     powerLevel: 0
+
+tracker:
+  enabled: true
+  interval: 0.3
+  tmpFolder: "temp"

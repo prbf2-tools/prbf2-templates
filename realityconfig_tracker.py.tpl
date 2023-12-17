@@ -8,19 +8,20 @@
 #
 C = {}
 
+{{- with .Values.tracker }}
 #Set to false to completely disable the tracker
-C['ENABLE'] = True
+C['ENABLE'] = {{ pyBool .enabled }}
 
 # TRACKER UPDATE INTERVAL
 # Every [UPDATE_INTERVAL] the server calls an update that function that collects all the relevant
 # data from the server and writes it to a file
-C['UPDATE_INTERVAL'] = 0.3
+C['UPDATE_INTERVAL'] = {{ .interval }}
 
 
 #================= Local work mode settings
 
 # Folder to write incomplete recordings into. Keep folder private to prevent ghosting!
-C['TMP_FOLDER'] = 'temp'
+C['TMP_FOLDER'] = '{{ .tmpFolder }}'
 
 
 # FILE NAME
