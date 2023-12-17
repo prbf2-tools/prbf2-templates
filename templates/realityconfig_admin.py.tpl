@@ -135,94 +135,99 @@ smb_forceRejoinTeamswitch = {{ pyBool .forceRejoinTeamswitch }}
 {{- end }}
 # ==============================================================================
 # LOGS SETTINGS
+{{- with .Values.logs }}
+{{- $logs := .}}
 #
 # Date format for logging
 # Default is "%Y%m%d_%H%M"
-log_date_format = "%Y-%m-%d %H:%M"
+log_date_format = {{ .dateFormat | quote }}
 #
 # Time format for logging
 # Default is "%H:%M:S"
-log_time_format = "%H:%M:%S"
+log_time_format = {{ .timeFormat | quote }}
 #
+    {{- with .chatlog }}
 # Enable/disable chat logging
 # Default is True
-log_chat = True
+log_chat = {{ pyBool .enabled }}
 #
 # Enable/disable player connect/disconnect logging. Written into chatlog
 # Default is True
-log_connects = True
+log_connects = {{ pyBool .connects }}
 #
 # Enable/disable player team switch logging. Written into chatlog
 # Default is False
-log_changeTeam = False
+log_changeTeam = {{ pyBool .changeTeam }}
 #
 # Chat log file name.
 # Default is "chatlog_%Y-%m-%d_%H%Ms.txt"
-log_chat_file = "chatlog_%Y-%m-%d_%H%M.txt"
+log_chat_file = {{ .file | quote }}
 #
 # Chat log file name.
 # Default is "admin/logs"
-log_chat_path = "admin/logs"
+log_chat_path = {{ .path | quote }}
 #
 # Enable/disable teamkill logging. Saved in chatlog
 # Default is True
-log_teamkills = True
+log_teamkills = {{ pyBool .teamkills }}
 #
 # Enable/Disable logging of players who play from the same IP at the same time.
 # Default is True
-log_coincident_IPs = True
+log_coincident_IPs = {{ $logs.coincidentIPs.enabled }}
 #
 # Enable/disable kill logging. Saved in chatlog
 # Default is False
-log_kills = False
+log_kills = {{ pyBool .kills }}
 #
+    {{- end }}
 # Enable/disable admin command logging. Saved in continues file.
 # Default is True
-log_admins = True
+log_admins = {{ pyBool .admins.enabled }}
 #
 # Enable/disable logging of bans. Saved in continues file.
 # Default is True
-log_bans = True
+log_bans = {{ pyBool .bans.enabled }}
 #
 # Enable/disable logging of tickets on round end. Saved in continues file.
 # Default is True
-log_tickets = True
+log_tickets = {{ pyBool .tickets.enabled }}
 
 
 #
 # Filename of the admin log file
 # Default is "ra_adminlog.txt"
-log_admins_file = "ra_adminlog.txt"
+log_admins_file = {{ .admins.file | quote }}
 #
 # Path relative to PR root (not mod root) of admin log file
 # Default is "admin/logs"
-log_admins_path = "admin/logs"
+log_admins_path = {{ .admins.path | quote }}
 #
 # Filename of the admin log file
 # Default is "banlist_info.log"
-log_bans_file = "banlist_info.log"
+log_bans_file = {{ .bans.file | quote }}
 #
 # Path relative to PR root (not mod root) of ban log file. [MOD] gets replaced by current mod directory
 # Default is "[MOD]/settings/"
-log_bans_path = "[MOD]/settings/"
+log_bans_path = {{ .bans.path | quote }}
 #
 # Filename of the coincident IP address file
 # default is "IPcoincidences.log"
-log_IP_coincidence_file = "IPcoincidences.log"
+log_IP_coincidence_file = {{ .coincidentIPs.file | quote }}
 #
 # Path relative to PR root (not mod root) of IP coincidence log. [MOD] gets replaced by current mod directory
 # Default is "[MOD]/settings/"
-log_IP_coincidence_path = "[MOD]/settings/"
+log_IP_coincidence_path = {{ .coincidentIPs.path | quote }}
 #
 # Filename of the tickets log file
 # Default is "tickets.log"
-log_tickets_file = "tickets.log"
+log_tickets_file = {{ .tickets.file | quote }}
 # Path relative to PR root (not mod root) of tickets log file
 # Default is "admin/logs"
-log_tickets_path = "admin/logs"
+log_tickets_path = {{ .tickets.path | quote }}
 #
 #
 #
+{{- end }}
 # ==============================================================================
 # ANNOUNCER SETTINGS
 {{- with .Values.announcer }}
