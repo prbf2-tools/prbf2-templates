@@ -260,7 +260,7 @@ ann_timedMessagesEnabled = {{ pyBool .timedMessagesEnabled }}
 # Usage: Interval: Message
 ann_timedMessages = {
     {{- range .timedMessages }}
-    {{ .interval }}: {{ if .msg }}{{ .msg | quote }}{{else if .longMsg }}"""{{ .longMsg }}"""{{ end }},
+    {{ .interval }}: {{ if .msg }}{{ .msg | quote }}{{else if .longMsg }}"""{{ .longMsg | trimSuffix "\n" }}"""{{ end }},
     {{- end }}
 }
 #
