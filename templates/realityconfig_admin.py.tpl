@@ -588,7 +588,7 @@ adm_adminPowerLevels = {
     "assignlead": {{ .assignlead }},
     #
     #
-    {{- $name, $command := range $.Values.extraCommands }}
+    {{- range $name, $command := $.Values.extraCommands }}
         {{- if $command.enabled }}
     {{ $name | quote}}: {{ $command.powerLevel }}
         {{- end }}
