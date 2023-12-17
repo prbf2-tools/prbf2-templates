@@ -657,7 +657,7 @@ rcon_enabled = {{ pyBool .enabled }}
 rcon_welcome = '{{ .welcome }}'
 
 # Powerlevels for the commands
-{{- with commandPowerLevels }}
+{{- with .commandPowerLevels }}
 rcon_commandPowerLevels = {
     # PRISM user management
     'getusers':        {{ .getusers }},
