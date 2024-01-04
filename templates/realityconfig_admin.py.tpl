@@ -173,7 +173,7 @@ log_teamkills = {{ pyBool .teamkills }}
 #
 # Enable/Disable logging of players who play from the same IP at the same time.
 # Default is True
-log_coincident_IPs = {{ $logs.coincidentIPs.enabled }}
+log_coincident_IPs = {{ pyBool $logs.coincidentIPs.enabled }}
 #
 # Enable/disable kill logging. Saved in chatlog
 # Default is False
