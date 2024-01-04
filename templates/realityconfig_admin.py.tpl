@@ -250,7 +250,7 @@ ann_joinMessage = {{ .joinMessage | quote }}
 ann_disconnectMessageEnabled = {{ pyBool .disconnectMessageEnabled }}
 #
 # This message is displayed when a player disconnects from the server.
-ann_disconnectMessage = {{ .disconnectMessage }}
+ann_disconnectMessage = {{ .disconnectMessage | quote }}
 #
 # Enable/disable displaying timed messages.
 # Default is False
