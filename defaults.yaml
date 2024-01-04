@@ -229,17 +229,17 @@ prism:
   enabled: true
   welcome: "Welcome to PRISM!"
   commandPowerLevels:
-    getusers:        0,
-    adduser:         0,
-    changeuser:      0,
-    deleteuser:      0,
-    mapplayers:      0,
-    mapgameplay:     0,
-    readbanlist:     0,
-    setbanlist:      0,
-    readmaplist:     777,
-    setmaplist:      0,
-    apiadmin:        0,
+    getusers:        0
+    adduser:         0
+    changeuser:      0
+    deleteuser:      0
+    mapplayers:      0
+    mapgameplay:     0
+    readbanlist:     0
+    setbanlist:      0
+    readmaplist:     777
+    setmaplist:      0
+    apiadmin:        0
 
   users: []
     # provide either salt and hash or password
