@@ -264,3 +264,27 @@ tracker:
   enabled: true
   interval: 0.3
   tmpFolder: "temp"
+  filename: "tracker_%Y_%m_%d_%H_%M_%S_/map_/mode_/layer"
+
+  public:
+    enabled: true
+    path: "demos"
+    writeIPs: false
+    writeHashes: true
+    chat:
+      enabled: true
+      team: true
+      squad: false
+
+  private:
+    enabled: false
+    path: "demos_private"
+
+  json:
+    enabled: true
+    path: "json"
+    writeIPs: true
+    writeHashes: true
+
+  flushEveryTick: false
+

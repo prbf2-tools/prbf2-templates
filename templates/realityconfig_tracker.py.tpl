@@ -28,51 +28,51 @@ C['TMP_FOLDER'] = '{{ .tmpFolder }}'
 # available parameters:
 # - '/map' '/mode' '/layer'
 # - date related strings that are parsed by strftime (https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior)
-C['FILE_NAME'] = 'tracker_%Y_%m_%d_%H_%M_%S_/map_/mode_/layer'
+C['FILE_NAME'] = '{{ .filename }}'
 
 
 #========PUBLIC TRACKER FILE
-C['TRACKER_FILE_PUBLIC'] = True
+C['TRACKER_FILE_PUBLIC'] = {{ pyBool .public.enabled }}
 
 # Folder to move complete public recordings into.
-C['PUBLIC_FOLDER'] = 'demos'
+C['PUBLIC_FOLDER'] = '{{ .public.path }}'
 
 
 # Public file private data selection:
 
 # Write player's IP to the public file.
-C['FILE_PRIVATEDATA_IP'] = False
+C['FILE_PRIVATEDATA_IP'] = {{ pyBool .public.writeIPs }}
 # Write player's HASH to the public file.
-C['FILE_PRIVATEDATA_HASH'] = True
+C['FILE_PRIVATEDATA_HASH'] = {{ pyBool .public.writeHashes }}
 
 # Enable any chat recording
-C['CHAT_ENABLE'] = True
+C['CHAT_ENABLE'] = {{ pyBool .public.chat.enabled }}
 # Enable Team chat recording
-C['CHAT_TEAM'] = True
+C['CHAT_TEAM'] = {{ pyBool .public.chat.team }}
 # Enable squad chat recording
-C['CHAT_SQUAD'] = False
+C['CHAT_SQUAD'] = {{ pyBool .public.chat.squad }}
 
 
 #==== PRIVATE TRACKER FILE
 # Create an extra file without filtering any private information
-C['TRACKER_FILE_PRIVATE'] = False
-C['PRIVATE_FOLDER'] = 'demos_private'
+C['TRACKER_FILE_PRIVATE'] = {{ pyBool .private.enabled }}
+C['PRIVATE_FOLDER'] = '{{ .private.path }}'
 
 
 
 
 #===== JSON Summary
 # Write a summary at end of round.
-C['JSON_ENABLE'] = True
+C['JSON_ENABLE'] = {{ pyBool .json.enabled }}
 # Folder for the JSON files. This must be set to something if JSON is enabled.
-C['JSON_FOLDER'] = 'json'
+C['JSON_FOLDER'] = '{{ .json.path }}'
 
-C['JSON_WRITE_IP'] = True
-C['JSON_WRITE_HASH'] = True
+C['JSON_WRITE_IP'] = {{ pyBool .json.writeIPs }}
+C['JSON_WRITE_HASH'] = {{ pyBool .json.writeHashes }}
 
 #===== Advanced options
 # Flush to file every recording tick, useful if you're having another program read the file.
-C['OUTPUT_FLUSH_EVERY_TICK'] = False
+C['OUTPUT_FLUSH_EVERY_TICK'] = {{ pyBool .flushEveryTick }}
 
 
 
