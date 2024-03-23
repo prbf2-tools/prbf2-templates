@@ -19,7 +19,7 @@ PRL10N = 'english'
 # Edit this setting to set the use of PR's own mutiny system
 # based on only Squad Leaders votes
 # Default is enabled
-PRMUTINY = 1
+PRMUTINY = {{ .Values.mutinySystem }}
 #
 #
 # PROJECT REALITY STATS CONSTANTS
@@ -34,14 +34,14 @@ PRCONSTANTS = 1
 # The purpose of a time limit is just to provide an in game clock
 # Default is 14400 (4 hours). Above 4 hours BF2CC will throw an error message
 # Set to 0 to disable time limit
-PRTIMELIMIT = 14400
+PRTIMELIMIT = {{ .Values.round.timeLimit }}
 #
 #
 # PROJECT REALITY ROUND START DELAY
 # Edit this setting to set the starting delay at the beginning of a game
 # The purpose of a start delay is to allow squads to be made, and assets to be claimed
 # Default is 240 (4 minutes), minimum of 120 (2 minutes), maximum of 300 (5 minutes) (For public servers)
-PRROUNDSTARTDELAY = 240
+PRROUNDSTARTDELAY = {{ .Values.round.startDelay }}
 #
 #
 # PROJECT REALITY BOT - PRBOT SPECTATOR CAMERA

@@ -29,6 +29,12 @@ maxPlayers: 64
 votingEnabled: 1
 demoQuality: 1
 
+mutinySystem: 1
+
+round:
+  timeLimit: 14400
+  startDelay: 240
+
 sponsorMessage:
   enabled: true
   message: "§C1001***§C1001 This server is powered by §C1001RealityAdmin ***§C1001"
