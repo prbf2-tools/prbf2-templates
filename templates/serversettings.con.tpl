@@ -13,9 +13,9 @@ sv.gameSpyPort {{ .Values.portGamespy }}
 rem IPv4:Port of the mumble server to use. Leave empty to disable mumble
 sv.voipServerRemoteIP {{ if .Values.murmurIP }}{{ printf "%s:%d" .Values.murmurIP .Values.murmurPort | quote }}{{ else }}""{{ end }}
 rem Message displayed in loading screen
-sv.welcomeMessage "Welcome to a Project Reality server!"
+sv.welcomeMessage {{ .Values.welcomeMessage | quote }}
 rem Message displayed in server browser. User '|' for line breaks and add 'pr_maplist' to add next maps in rotation
-sv.sponsorText "Welcome to a Project Reality server!|pr_maplist"
+sv.sponsorText {{ .Values.sponsorText | quote }}
 rem Logo displayed in server browser
 sv.sponsorLogoURL {{ .Values.sponsorLogoURL | quote }}
 rem Logo displayed in server browser

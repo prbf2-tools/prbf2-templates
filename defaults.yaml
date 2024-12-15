@@ -29,6 +29,9 @@ maxPlayers: 64
 votingEnabled: 1
 demoQuality: 1
 
+welcomeMessage: "Welcome to a Project Reality server!"
+sponsorText: "Welcome to a Project Reality server!|pr_maplist"
+
 mutinySystem: 1
 
 round:
