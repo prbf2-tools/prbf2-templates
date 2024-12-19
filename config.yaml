@@ -1,6 +1,8 @@
 templates:
   - src: templates/serversettings.con.tpl
     dest: mods/pr/settings/serversettings.con
+  - src: templates/maplist.con.tpl
+    dest: mods/pr/settings/maplist.con
   - src: templates/realityconfig_admin.py.tpl
     dest: mods/pr/python/game/realityconfig_admin.py
     reloadable: true

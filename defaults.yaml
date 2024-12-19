@@ -10,6 +10,17 @@ reservedSlotsNum: 0
 reservedSlots: []
   # - "player"
 
+maplistRaw: ""
+# maplistRaw: |
+  # mapList.append black_gold gpm_cq 32
+  # mapList.append pavlovsk_bay gpm_cq 64
+  # mapList.append battle_of_ia_drang gpm_cq 32
+  # mapList.append tad_sae gpm_cq 64
+  # mapList.append reichswald gpm_cq 16
+  # mapList.append tad_sae gpm_cq 16
+  # mapList.append shijiavalley gpm_cq 128
+  # mapList.append operation_falcon gpm_cq 32
+
 maplist: []
   # - name: "operation_marlin"
   #   layer: "64"
