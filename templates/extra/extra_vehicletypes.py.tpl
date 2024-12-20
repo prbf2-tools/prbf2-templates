@@ -26,7 +26,7 @@ rscoring.WORTHSCHEMA["vehicles"] = rscoring.WORTHSCHEMA["vehicles"] + {
 # Custom type vehicles must be included at the begining
 # because they are matched in order (first match)
 rconstants.vehicleTypeMap = OrderedDict([
-{{- range $_, $typ . }}
+{{- range $_, $typ :=  . }}
     {{- range $typ.include }}
     ({{ . | quote }}, VEHICLE_TYPE_{{ $typ.name }}),
     {{- end }}
