@@ -348,4 +348,11 @@ acsys:
     include:
       - "civ_trk_dumpster_bomber"
       - "civ_atm_technical"
-    
+
+acsysCustomTypes:
+  # - name: "SPG"
+  #   base: "APC"
+  #   # start from 1000 to avoid conflicts with vanilla types
+  #   # use the ID as the squadControls value in acsys.assets
+  #   id: 1001 
+  #   include: ["civ_atm_technical"]

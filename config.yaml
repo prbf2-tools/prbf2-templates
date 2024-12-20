@@ -21,6 +21,8 @@ templates:
     dest: mods/pr/python/game/__init__.py
   - src: templates/extra/command_debug.py.tpl
     dest: mods/pr/python/game/command_debug.py
+  - src: templates/extra/extra_vehicletypes.py.tpl
+    dest: mods/pr/python/game/extra_vehicletypes.py
 
 defaults:
   - defaults.yaml

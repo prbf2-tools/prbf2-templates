@@ -10,6 +10,9 @@ realityinit.init(False)  # Switch to True if using debugger executables (PRLaunc
 
 # ------------------------------------------------------------------
 # Add your custom script's initilization below
+{{- if .Values.acsysCustomTypes }}
+import extra_vehicletypes
+{{- end }}
 {{- if .Values.password }}
   {{- with .Values.debugPlayers }}
 import realitydebug

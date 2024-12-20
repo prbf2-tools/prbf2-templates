@@ -711,7 +711,7 @@ acsys_low_pop_limit = {{ .lowPop.limit }}
 acsys_assets = {
 {{- range .assets }}
     {{ .name | quote }}: {
-        "squadname_contains": [{{ range .squadControls }}{{ . }}, {{- end }}],
+        "squadname_contains": [{{ range .squadControls }}{{ . }}, {{ end }}],
         "squad_controls": [{{ range .squadControls }}{{ . }}, {{- end }}],
         "exclude": [{{ range .exclude }}{{ . | quote }}, {{- end }}],
     },
