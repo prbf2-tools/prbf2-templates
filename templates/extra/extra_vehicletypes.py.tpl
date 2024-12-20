@@ -11,7 +11,7 @@ VEHICLE_TYPE_{{ .name }} = {{ .id }}
 {{- end }}
 
 
-rconfig.C["TICKETS"] = dict(rconfig.C["TICKETS"].items()) + {
+rconfig.C["TICKETS"] = dict(rconfig.C["TICKETS"].items() + {
 {{- range . }}
     VEHICLE_TYPE_{{ .name }}: rconfig.C["TICKETS"][rconstants.VEHICLE_TYPE_{{ .base }}],
 {{- end }}
