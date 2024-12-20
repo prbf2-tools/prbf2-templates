@@ -765,3 +765,7 @@ testscramble = True
 # Prevent these IDs from being caught in related bans, useful for genuinely shared computers etc
 # whitelisted_player_ids = ["77ff5fecc0e648249bd6b01fdba02242"]
 whitelisted_player_ids = []
+
+# Disables all-chat input for clients (clients can still send messages in team-chat and squad-chat)
+# Default is false
+disable_allchat = False
