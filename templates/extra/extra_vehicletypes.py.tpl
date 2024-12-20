@@ -21,7 +21,7 @@ rscoring.WORTHSCHEMA["vehicles"] = dict(rscoring.WORTHSCHEMA["vehicles"].items()
 {{- range . }}
     VEHICLE_TYPE_{{ .name }}: rscoring.WORTHSCHEMA["vehicles"][rconstants.VEHICLE_TYPE_{{ .base }}],
 {{- end }}
-}.items()
+}.items())
 
 # Custom type vehicles must be included at the begining
 # because they are matched in order (first match)
