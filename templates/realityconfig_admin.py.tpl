@@ -685,10 +685,11 @@ rcon_commandPowerLevels = {
 {{- end }}
 {{- end }}
 
+{{- with .Values.acsys }}
 # ACSYS Asset Claim SYStem (commented out for now, future patch)
-acsys_enable = False  # Enforce squads in acsys_assets name uniqueness
+acsys_enable = {{ pyBool .enable }}  # Enforce squads in acsys_assets name uniqueness
 # enforce a minimum number of players before using assets, set to 0 to disable
-acsys_low_pop_limit = 0
+acsys_low_pop_limit = {{ .lowPop.limit }}
 # c.VEHICLE_TYPE_UNKNOWN
 # c.VEHICLE_TYPE_ARMOR  # TANK
 # c.VEHICLE_TYPE_AAV  # Anti Air
@@ -708,32 +709,19 @@ acsys_low_pop_limit = 0
 # c.VEHICLE_TYPE_ALC  # Armoured Logistics Carrier
 # c.VEHICLE_TYPE_UAV
 acsys_assets = {
-    "APC": {
-        "squadname_contains": ["APC"],  # squad contains this string
-        "squad_controls": [c.VEHICLE_TYPE_APC, c.VEHICLE_TYPE_IFV],  # _type_
-        "exclude": [],  # templateName string list to exclude
+{{- range .assets }}
+    {{ .name | quote }}: {
+        "squadname_contains": [{{ range .squadControls }}{{ . }}, {{- end }}],
+        "squad_controls": [{{ range .squadControls }}{{ . }}, {{- end }}],
+        "exclude": [{{ range .exclude }}{{ . | quote }}, {{- end }}],
     },
-    "TANK": {
-        "squadname_contains": ["TANK"],
-        "squad_controls": [c.VEHICLE_TYPE_ARMOR],
-        "exclude": [],
-    },
-    "CAS": {
-        "squadname_contains": ["CAS"],
-        "squad_controls": [c.VEHICLE_TYPE_JET, c.VEHICLE_TYPE_HELIATTACK],
-        "exclude": [],
-    },
-    "TRANS": {
-        "squadname_contains": ["TRANS"],
-        "squad_controls": [c.VEHICLE_TYPE_HELI],
-        "exclude": [],
-    },
+{{- end }}
 }
 acsys_low_pop = {  # additional types and template names to exclude from low pop servers
-    "vehicle_type": [c.VEHICLE_TYPE_APC, c.VEHICLE_TYPE_IFV, c.VEHICLE_TYPE_ARMOR,
-                     c.VEHICLE_TYPE_JET, c.VEHICLE_TYPE_HELIATTACK, c.VEHICLE_TYPE_AAV],
-    "include": ["civ_trk_dumpster_bomber", "civ_atm_technical"],
+    "vehicle_type": [{{ range .vehicleType }}{{ . }}, {{- end }}],
+    "include": [{{ range .include }}{{ . | quote }}, {{- end }}],
 }
+{{- end }}
 
 # Prism TCP port to listen on
 rcon_port = {{ .Values.portPrism }}

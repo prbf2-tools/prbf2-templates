@@ -306,3 +306,46 @@ tracker:
 
   flushEveryTick: false
 
+
+acsys:
+  enable: false
+  assets:
+  - name: "APC"
+    squadnameContains:
+      - "APC"
+    squadControls:
+      - c.VEHICLE_TYPE_APC
+      - c.VEHICLE_TYPE_IFV
+    exclude: []
+  - name: "TANK"
+    squadnameContains:
+      - "TANK"
+    squadControls:
+      - c.VEHICLE_TYPE_ARMOR
+    exclude: []
+  - name: "CAS"
+    squadnameContains:
+      - "CAS"
+    squadControls:
+      - c.VEHICLE_TYPE_JET
+      - c.VEHICLE_TYPE_HELIATTACK
+    exclude: []
+  - name: "TRANS"
+    squadnameContains:
+      - "TRANS"
+    squadControls:
+      - c.VEHICLE_TYPE_HELI
+    exclude: []
+  lowPop:
+    limit: 0 # disabled
+    vehicleType:
+      - c.VEHICLE_TYPE_APC
+      - c.VEHICLE_TYPE_IFV
+      - c.VEHICLE_TYPE_ARMOR
+      - c.VEHICLE_TYPE_JET
+      - c.VEHICLE_TYPE_HELIATTACK
+      - c.VEHICLE_TYPE_AAV
+    include:
+      - "civ_trk_dumpster_bomber"
+      - "civ_atm_technical"
+    
