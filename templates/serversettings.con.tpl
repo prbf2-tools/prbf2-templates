@@ -43,7 +43,7 @@ sv.votingEnabled {{ .Values.votingEnabled }}
 sv.voteTime 90
 sv.minPlayersForVoting 1
 sv.allowNATNegotiation 0
-sv.autoRecord 0
+sv.autoRecord {{ .Values.demoEnabled }}
 sv.demoIndexURL http://
 sv.demoDownloadURL http://
 sv.autoDemoHook "adminutils/demo/rotate_demo.exe"
