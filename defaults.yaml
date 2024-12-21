@@ -38,6 +38,7 @@ sponsorLogoURL: ""
 communityLogoURL: ""
 maxPlayers: 64
 votingEnabled: 1
+demoEnabled: 0
 demoQuality: 1
 
 welcomeMessage: "Welcome to a Project Reality server!"
