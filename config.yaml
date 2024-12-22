@@ -15,8 +15,8 @@ templates:
   - src: templates/reservedslots.con.tpl
     dest: mods/pr/settings/reservedslots.con
     reloadable: true
-  - src: templates/rconUsers.dat.tpl
-    dest: admin/rconUsers.dat
+  # - src: templates/rconUsers.dat.tpl
+  #   dest: admin/rconUsers.dat
   - src: templates/__init__.py.tpl
     dest: mods/pr/python/game/__init__.py
   - src: templates/extra/command_debug.py.tpl
