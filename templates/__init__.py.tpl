@@ -4,6 +4,7 @@
 #
 # This file can be edited by any server (public or private).
 #
+import encodings # Required to fix LookupError for encode()
 import realityinit
 
 realityinit.init(False)  # Switch to True if using debugger executables (PRLauncher.exe will automatically modify this value accordingly)
