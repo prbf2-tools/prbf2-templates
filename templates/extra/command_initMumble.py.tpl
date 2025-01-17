@@ -12,3 +12,8 @@ def commandInitMumble(args, p):
     reload(rasreload)
 
     radmin.MumbleOTP.secret = rasreload.mum_mumbleSecret
+
+    radmin.adminPM(
+        "Mumble secret loaded.", p
+    )
+    radmin.logAdmin("!initMumble", p.getName(), "", "Mumble secret loaded.")

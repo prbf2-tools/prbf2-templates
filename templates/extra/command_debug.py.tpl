@@ -9,23 +9,23 @@ def init():
 
 def commandDebug(args, p):
     if len(args) < 1:
-        personalMessage("Please specify a player to give debug to", p)
+        radmin.personalMessage("Please specify a player to give debug to", p)
         return False
 
     foundPlayers = radmin.findPlayer(args[0], p)
 
     if len(foundPlayers) == 0:
-        adminPM("Player %s not found." % (args[0]), p)
-        logAdmin("!debug", p.getName(), "", "Player %s not found." % (args[0]))
+        radmin.adminPM("Player %s not found." % (args[0]), p)
+        radmin.logAdmin("!debug", p.getName(), "", "Player %s not found." % (args[0]))
         return False
 
     for player in foundPlayers:
         giveDebugPower(player)
-        adminPM(
+        radmin.adminPM(
             "%s has been given debug powers." %
             (player.getName()), p
         )
-        logAdmin("!debug", p.getName(), player.getName(), "")
+        radmin.logAdmin("!debug", p.getName(), player.getName(), "")
 
 
 def giveDebugPower(player):
