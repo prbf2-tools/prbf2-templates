@@ -278,6 +278,9 @@ extraCommands:
   debug:
     enabled: false
     powerLevel: 0
+  initMumble:
+    enabled: false
+    powerLevel: 0
 
 tracker:
   enabled: true
