@@ -17,3 +17,4 @@ def commandInitMumble(args, p):
         "Mumble secret loaded.", p
     )
     radmin.logAdmin("!initMumble", p.getName(), "", "Mumble secret loaded.")
+    return True
