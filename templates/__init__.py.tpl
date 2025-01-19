@@ -26,9 +26,14 @@ realitydebug.PRDEBUG_DEVS["{{ .name }}"] = {{ .hash | quote }}
     {{- end }}
   {{- end }}
 {{- end }}
-{{- range $name, $command := .Values.extraCommands }}
-  {{- if $command.enabled }}
-import command_{{ $name }}
-command_{{ $name }}.init()
-  {{- end }}
-{{- end }}
+try:
+    {{- range $name, $command := .Values.extraCommands }}
+    {{- if $command.enabled }}
+    import command_{{ $name }}
+    command_{{ $name }}.init()
+    {{- end }}
+    {{- end }}
+    pass
+except:
+    import realitydebug
+    realitydebug.errorMessage()
