@@ -4,7 +4,7 @@
 #
 # This file can be edited by any server (public or private).
 # 
-# $Id: realityconfig_common.py 34646 2021-02-24 15:16:03Z prbot $
+# $Id: realityconfig_common.py 40171 2024-05-11 15:51:38Z prbot $
 #
 #
 # PROJECT REALITY LOCALIZATION
@@ -51,13 +51,10 @@ PRROUNDSTARTDELAY = {{ .Values.round.startDelay }}
 # Example: PRSPECTATORS = [ 'username', 'otherusername' ]
 PRSPECTATORS = []
 
-
 # Override server-side timeout
 # How long (in milliseconds) does a server keep clients when no packets have been received from them
 # None for default (45000ms)
 PRCONNECTIONTIMEOUT = None
-
-
 
 # Maximum commands from client to buffer.
 # BF2's value is 4, and is not needed with modern connections.
@@ -65,14 +62,11 @@ PRCONNECTIONTIMEOUT = None
 # Lower value create mucg less latency for clients, but may cause inputs to be ignored when ping is unstable (bad WiFi)
 ACTIONBUFFER_MAXSIZE = 2
 
-
-
 # Maximum outgoing packet size
 # Max value is 0x540 and is recommended.
-# Players with bandwidth problems may independently set "GeneralSettings.setConnectionType 4" to request smaller packets, but I doubt there's anyone who can't handle this max size
+# Players with bandwidth problems may independently set "GeneralSettings.setConnectionType 4" to request smaller
+# packets, but I doubt there's anyone who can't handle this max size
 OUTGOING_PACKET_MAXSIZE = 0x540
-
-
 
 #
 #
