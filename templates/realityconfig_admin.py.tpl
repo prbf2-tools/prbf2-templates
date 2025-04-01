@@ -766,6 +766,31 @@ testscramble = True
 # whitelisted_player_ids = ["77ff5fecc0e648249bd6b01fdba02242"]
 whitelisted_player_ids = []
 
-# Disables all-chat input for clients (clients can still send messages in team-chat and squad-chat)
+{{- with .Values.allchat }}
+#
+#
+# ==============================================================================
+#
+# ALLCHAT
+#
+# Disable all-chat input for clients (clients can still send messages in team-chat and squad-chat)
+#
+# This is a final setting. If this is set to true it will disable allchat, period.
 # Default is false
-disable_allchat = False
+disable_allchat = {{ pyBool .enabled }}
+#
+# This is allchat enabling/disabling based on player count. The above setting must be set to false for these to be in effect.
+# If the player count is greater than or equal to the disable_threshold, allchat is disabled.
+# If the player count is truly lower than the enable_threshold, allchat is enabled.
+# Make sure you have a certain difference between them. Eg. set disable_threshold to 60 and enable_threshold to 40.
+# Otherwise allchat will be constantly enabled and disabled when the player count rises and falls by a single count.
+# Default is 999 for both (which has the effect that these are ignored)
+allchat_disable_threshold = {{ .disabledThreshold }}
+allchat_enable_threshold = {{ .enabledThreshold }}
+#
+# ==============================================================================
+#
+#
+
+# Locations for sqlite3 ban database, uncomment to apply. Only absolute paths are supported
+# bans_sqlite3 = "/some/path/you/set"

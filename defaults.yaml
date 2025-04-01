@@ -79,6 +79,11 @@ smartBalance:
   disableSwitchNow: false 
   forceRejoinTeamswitch: true 
 
+allchat:
+  enabled: false
+  disableTreshold: 999
+  enableTreshold: 999
+
 announcer:
   enabled: true
   joinMessageEnabled : true
