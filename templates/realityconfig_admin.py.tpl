@@ -791,6 +791,7 @@ allchat_enable_threshold = {{ .enabledThreshold }}
 # ==============================================================================
 #
 #
+{{- end }}
 
 # Locations for sqlite3 ban database, uncomment to apply. Only absolute paths are supported
 # bans_sqlite3 = "/some/path/you/set"
