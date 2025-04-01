@@ -137,7 +137,6 @@ entranceControl:
 
 admin:
   enabled: true
-  showPrism: true
   autoAdmin: false
   notifyChangeTeam: false
   sendTeamKillMessage: true

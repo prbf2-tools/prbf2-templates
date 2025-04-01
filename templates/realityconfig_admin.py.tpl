@@ -274,10 +274,6 @@ ann_timedMessages = {
 # Default is True
 adm_enabled = {{ pyBool .enabled }}
 #
-# Enable/disable to show PRISM users in !admins command.
-# Default is True
-adm_show_prism = {{ pyBool .showPrism }}
-#
 # If true, as soon as the last admin leaves autoadmin will be activated.
 # Default is False
 adm_autoAdmin = {{ pyBool .autoAdmin }}
