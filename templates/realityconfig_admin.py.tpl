@@ -785,8 +785,8 @@ disable_allchat = {{ pyBool .enabled }}
 # Make sure you have a certain difference between them. Eg. set disable_threshold to 60 and enable_threshold to 40.
 # Otherwise allchat will be constantly enabled and disabled when the player count rises and falls by a single count.
 # Default is 999 for both (which has the effect that these are ignored)
-allchat_disable_threshold = {{ .disabledThreshold }}
-allchat_enable_threshold = {{ .enabledThreshold }}
+allchat_disable_threshold = {{ .disableThreshold }}
+allchat_enable_threshold = {{ .enableThreshold }}
 #
 # ==============================================================================
 #
