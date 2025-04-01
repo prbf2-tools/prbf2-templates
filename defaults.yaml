@@ -81,8 +81,8 @@ smartBalance:
 
 allchat:
   enabled: false
-  disableTreshold: 999
-  enableTreshold: 999
+  disableThreshold: 999
+  enableThreshold: 999
 
 announcer:
   enabled: true
